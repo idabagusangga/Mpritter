@@ -9,11 +9,16 @@ const cors = require('cors')
 const users = require('./routes/users');
 
 const app = express();
-
+require('dotenv').config()
 
 const mongoose = require('mongoose')
 mongoose.connect(`mongodb://angga:${process.env.PASSWORD}@ds135926.mlab.com:35926/library`);
 
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log('MLABS Connected');
+});
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'jade');

@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <loginForm/>
   </div>
 </template>
 
@@ -14,7 +15,7 @@ export default {
     }
   },
   components: {
-    login: formLogin
+    loginForm: formLogin
   }
 }
 </script>

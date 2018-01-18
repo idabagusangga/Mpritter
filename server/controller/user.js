@@ -45,5 +45,23 @@ class UserController {
       console.log(err);
     })
   }
+  static editProfile (req, res) {
+    console.log('masuk sini');
+    let decoded = jwt.verify(req.body.token,process.env.SECRET)
+    UserModel.findById(decoded.id)
+    .then(response => {
+      response.profilePic = req.file.cloudStoragePublicUrl
+      response.save()
+      .then(result=>{
+        console.log(result);
+      })
+      .catch(err=>{
+        console.log(err);
+      })
+    })
+    .catch(err=>{
+      console.log(err);
+    })
+  }
 }
 module.exports = UserController;

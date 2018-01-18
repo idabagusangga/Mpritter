@@ -5,6 +5,7 @@ const logger = require('morgan');
 // const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const cors = require('cors')
+const multer = require('multer')
 // const index = require('./routes/index');
 const users = require('./routes/users');
 const tweets = require('./routes/twit')

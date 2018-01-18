@@ -6,7 +6,8 @@ const Schema = mongoose.Schema;
 let userSchema = new Schema ({
   email: String,
   username: String,
-  password: String
+  password: String,
+  profilePic: String
 })
 
 userSchema.pre('save',function(callback){

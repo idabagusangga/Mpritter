@@ -41,6 +41,23 @@ class TweetController {
       })
     })
   }
+  static searchTweetByTags (req, res) {
+    let finalResult = []
+    TweetModel.find()
+    .then(result => {
+      result.forEach(post =>{
+        if (post.tags.indexOf('#'+req.body.search) != -1) {
+          finalResult.push(post)
+        }
+      })
+      res.status(200).json({
+        data: finalResult
+      })
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  }
 }
 
 module.exports = TweetController;

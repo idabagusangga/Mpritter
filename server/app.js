@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors')
 // const index = require('./routes/index');
 const users = require('./routes/users');
+const tweets = require('./routes/twit')
 
 const app = express();
 require('dotenv').config()
@@ -34,6 +35,7 @@ app.use(cors())
 
 // app.use('/', index);
 app.use('/users', users);
+app.use('/tweets', tweets)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
